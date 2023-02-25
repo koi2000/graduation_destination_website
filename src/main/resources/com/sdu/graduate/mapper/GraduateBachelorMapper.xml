@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sdu.graduate.mapper.GraduateBachelorMapper">
+  <resultMap id="BaseResultMap" type="com.sdu.graduate.entity.GraduateBachelorDO">
+    <!--@mbg.generated-->
+    <!--@Table graduate_bachelor-->
+    <id column="b_id" jdbcType="BIGINT" property="bId" />
+    <result column="b_gmt_create" jdbcType="TIMESTAMP" property="bGmtCreate" />
+    <result column="b_gmt_modified" jdbcType="TIMESTAMP" property="bGmtModified" />
+    <result column="b_is_deleted" jdbcType="TINYINT" property="bIsDeleted" />
+    <result column="b_name" jdbcType="VARCHAR" property="bName" />
+    <result column="b_sex" jdbcType="TINYINT" property="bSex" />
+    <result column="b_destination" jdbcType="VARCHAR" property="bDestination" />
+    <result column="b_organization_name" jdbcType="VARCHAR" property="bOrganizationName" />
+    <result column="b_organization_property" jdbcType="VARCHAR" property="bOrganizationProperty" />
+    <result column="b_organization_industry" jdbcType="VARCHAR" property="bOrganizationIndustry" />
+    <result column="b_organization_location" jdbcType="VARCHAR" property="bOrganizationLocation" />
+    <result column="b_organization_category" jdbcType="VARCHAR" property="bOrganizationCategory" />
+    <result column="b_organization_location_detail" jdbcType="VARCHAR" property="bOrganizationLocationDetail" />
+    <result column="b_coutry" jdbcType="VARCHAR" property="bCoutry" />
+    <result column="b_province" jdbcType="VARCHAR" property="bProvince" />
+    <result column="b_city" jdbcType="VARCHAR" property="bCity" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    b_id, b_gmt_create, b_gmt_modified, b_is_deleted, b_name, b_sex, b_destination, b_organization_name, 
+    b_organization_property, b_organization_industry, b_organization_location, b_organization_category, 
+    b_organization_location_detail, b_coutry, b_province, b_city
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from graduate_bachelor
+    where b_id = #{bId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from graduate_bachelor
+    where b_id = #{bId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="b_id" keyProperty="bId" parameterType="com.sdu.graduate.entity.GraduateBachelorDO" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into graduate_bachelor (b_gmt_create, b_gmt_modified, b_is_deleted, 
+      b_name, b_sex, b_destination, 
+      b_organization_name, b_organization_property, 
+      b_organization_industry, b_organization_location, 
+      b_organization_category, b_organization_location_detail, 
+      b_coutry, b_province, b_city
+      )
+    values (#{bGmtCreate,jdbcType=TIMESTAMP}, #{bGmtModified,jdbcType=TIMESTAMP}, #{bIsDeleted,jdbcType=TINYINT}, 
+      #{bName,jdbcType=VARCHAR}, #{bSex,jdbcType=TINYINT}, #{bDestination,jdbcType=VARCHAR}, 
+      #{bOrganizationName,jdbcType=VARCHAR}, #{bOrganizationProperty,jdbcType=VARCHAR}, 
+      #{bOrganizationIndustry,jdbcType=VARCHAR}, #{bOrganizationLocation,jdbcType=VARCHAR}, 
+      #{bOrganizationCategory,jdbcType=VARCHAR}, #{bOrganizationLocationDetail,jdbcType=VARCHAR}, 
+      #{bCoutry,jdbcType=VARCHAR}, #{bProvince,jdbcType=VARCHAR}, #{bCity,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="b_id" keyProperty="bId" parameterType="com.sdu.graduate.entity.GraduateBachelorDO" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into graduate_bachelor
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="bGmtCreate != null">
+        b_gmt_create,
+      </if>
+      <if test="bGmtModified != null">
+        b_gmt_modified,
+      </if>
+      <if test="bIsDeleted != null">
+        b_is_deleted,
+      </if>
+      <if test="bName != null">
+        b_name,
+      </if>
+      <if test="bSex != null">
+        b_sex,
+      </if>
+      <if test="bDestination != null">
+        b_destination,
+      </if>
+      <if test="bOrganizationName != null">
+        b_organization_name,
+      </if>
+      <if test="bOrganizationProperty != null">
+        b_organization_property,
+      </if>
+      <if test="bOrganizationIndustry != null">
+        b_organization_industry,
+      </if>
+      <if test="bOrganizationLocation != null">
+        b_organization_location,
+      </if>
+      <if test="bOrganizationCategory != null">
+        b_organization_category,
+      </if>
+      <if test="bOrganizationLocationDetail != null">
+        b_organization_location_detail,
+      </if>
+      <if test="bCoutry != null">
+        b_coutry,
+      </if>
+      <if test="bProvince != null">
+        b_province,
+      </if>
+      <if test="bCity != null">
+        b_city,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="bGmtCreate != null">
+        #{bGmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bGmtModified != null">
+        #{bGmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bIsDeleted != null">
+        #{bIsDeleted,jdbcType=TINYINT},
+      </if>
+      <if test="bName != null">
+        #{bName,jdbcType=VARCHAR},
+      </if>
+      <if test="bSex != null">
+        #{bSex,jdbcType=TINYINT},
+      </if>
+      <if test="bDestination != null">
+        #{bDestination,jdbcType=VARCHAR},
+      </if>
+      <if test="bOrganizationName != null">
+        #{bOrganizationName,jdbcType=VARCHAR},
+      </if>
+      <if test="bOrganizationProperty != null">
+        #{bOrganizationProperty,jdbcType=VARCHAR},
+      </if>
+      <if test="bOrganizationIndustry != null">
+        #{bOrganizationIndustry,jdbcType=VARCHAR},
+      </if>
+      <if test="bOrganizationLocation != null">
+        #{bOrganizationLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="bOrganizationCategory != null">
+        #{bOrganizationCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="bOrganizationLocationDetail != null">
+        #{bOrganizationLocationDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="bCoutry != null">
+        #{bCoutry,jdbcType=VARCHAR},
+      </if>
+      <if test="bProvince != null">
+        #{bProvince,jdbcType=VARCHAR},
+      </if>
+      <if test="bCity != null">
+        #{bCity,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sdu.graduate.entity.GraduateBachelorDO">
+    <!--@mbg.generated-->
+    update graduate_bachelor
+    <set>
+      <if test="bGmtCreate != null">
+        b_gmt_create = #{bGmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bGmtModified != null">
+        b_gmt_modified = #{bGmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bIsDeleted != null">
+        b_is_deleted = #{bIsDeleted,jdbcType=TINYINT},
+      </if>
+      <if test="bName != null">
+        b_name = #{bName,jdbcType=VARCHAR},
+      </if>
+      <if test="bSex != null">
+        b_sex = #{bSex,jdbcType=TINYINT},
+      </if>
+      <if test="bDestination != null">
+        b_destination = #{bDestination,jdbcType=VARCHAR},
+      </if>
+      <if test="bOrganizationName != null">
+        b_organization_name = #{bOrganizationName,jdbcType=VARCHAR},
+      </if>
+      <if test="bOrganizationProperty != null">
+        b_organization_property = #{bOrganizationProperty,jdbcType=VARCHAR},
+      </if>
+      <if test="bOrganizationIndustry != null">
+        b_organization_industry = #{bOrganizationIndustry,jdbcType=VARCHAR},
+      </if>
+      <if test="bOrganizationLocation != null">
+        b_organization_location = #{bOrganizationLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="bOrganizationCategory != null">
+        b_organization_category = #{bOrganizationCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="bOrganizationLocationDetail != null">
+        b_organization_location_detail = #{bOrganizationLocationDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="bCoutry != null">
+        b_coutry = #{bCoutry,jdbcType=VARCHAR},
+      </if>
+      <if test="bProvince != null">
+        b_province = #{bProvince,jdbcType=VARCHAR},
+      </if>
+      <if test="bCity != null">
+        b_city = #{bCity,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where b_id = #{bId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sdu.graduate.entity.GraduateBachelorDO">
+    <!--@mbg.generated-->
+    update graduate_bachelor
+    set b_gmt_create = #{bGmtCreate,jdbcType=TIMESTAMP},
+      b_gmt_modified = #{bGmtModified,jdbcType=TIMESTAMP},
+      b_is_deleted = #{bIsDeleted,jdbcType=TINYINT},
+      b_name = #{bName,jdbcType=VARCHAR},
+      b_sex = #{bSex,jdbcType=TINYINT},
+      b_destination = #{bDestination,jdbcType=VARCHAR},
+      b_organization_name = #{bOrganizationName,jdbcType=VARCHAR},
+      b_organization_property = #{bOrganizationProperty,jdbcType=VARCHAR},
+      b_organization_industry = #{bOrganizationIndustry,jdbcType=VARCHAR},
+      b_organization_location = #{bOrganizationLocation,jdbcType=VARCHAR},
+      b_organization_category = #{bOrganizationCategory,jdbcType=VARCHAR},
+      b_organization_location_detail = #{bOrganizationLocationDetail,jdbcType=VARCHAR},
+      b_coutry = #{bCoutry,jdbcType=VARCHAR},
+      b_province = #{bProvince,jdbcType=VARCHAR},
+      b_city = #{bCity,jdbcType=VARCHAR}
+    where b_id = #{bId,jdbcType=BIGINT}
+  </update>
+</mapper>

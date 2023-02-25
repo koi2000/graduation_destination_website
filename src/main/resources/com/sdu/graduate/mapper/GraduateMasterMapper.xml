@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sdu.graduate.mapper.GraduateMasterMapper">
+  <resultMap id="BaseResultMap" type="com.sdu.graduate.entity.GraduateMasterDO">
+    <!--@mbg.generated-->
+    <!--@Table graduate_master-->
+    <id column="m_id" jdbcType="BIGINT" property="mId" />
+    <result column="m_gmt_create" jdbcType="TIMESTAMP" property="mGmtCreate" />
+    <result column="m_gmt_modified" jdbcType="TIMESTAMP" property="mGmtModified" />
+    <result column="m_is_deleted" jdbcType="TINYINT" property="mIsDeleted" />
+    <result column="m_name" jdbcType="VARCHAR" property="mName" />
+    <result column="m_sex" jdbcType="TINYINT" property="mSex" />
+    <result column="m_qualification" jdbcType="VARCHAR" property="mQualification" />
+    <result column="m_major" jdbcType="VARCHAR" property="mMajor" />
+    <result column="m_major_direction" jdbcType="VARCHAR" property="mMajorDirection" />
+    <result column="m_cultivation_method" jdbcType="VARCHAR" property="mCultivationMethod" />
+    <result column="m_destination" jdbcType="VARCHAR" property="mDestination" />
+    <result column="m_graduation_time" jdbcType="VARCHAR" property="mGraduationTime" />
+    <result column="m_class" jdbcType="VARCHAR" property="mClass" />
+    <result column="m_stuid" jdbcType="VARCHAR" property="mStuid" />
+    <result column="m_organization_name" jdbcType="VARCHAR" property="mOrganizationName" />
+    <result column="m_organization_property" jdbcType="VARCHAR" property="mOrganizationProperty" />
+    <result column="m_organization_industry" jdbcType="VARCHAR" property="mOrganizationIndustry" />
+    <result column="m_organization_location" jdbcType="VARCHAR" property="mOrganizationLocation" />
+    <result column="m_organization_category" jdbcType="VARCHAR" property="mOrganizationCategory" />
+    <result column="m_organization_location_detail" jdbcType="VARCHAR" property="mOrganizationLocationDetail" />
+    <result column="m_coutry" jdbcType="VARCHAR" property="mCoutry" />
+    <result column="m_province" jdbcType="VARCHAR" property="mProvince" />
+    <result column="m_city" jdbcType="VARCHAR" property="mCity" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    m_id, m_gmt_create, m_gmt_modified, m_is_deleted, m_name, m_sex, m_qualification, 
+    m_major, m_major_direction, m_cultivation_method, m_destination, m_graduation_time, 
+    m_class, m_stuid, m_organization_name, m_organization_property, m_organization_industry, 
+    m_organization_location, m_organization_category, m_organization_location_detail, 
+    m_coutry, m_province, m_city
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from graduate_master
+    where m_id = #{mId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from graduate_master
+    where m_id = #{mId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="m_id" keyProperty="mId" parameterType="com.sdu.graduate.entity.GraduateMasterDO" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into graduate_master (m_gmt_create, m_gmt_modified, m_is_deleted, 
+      m_name, m_sex, m_qualification, 
+      m_major, m_major_direction, m_cultivation_method, 
+      m_destination, m_graduation_time, m_class, 
+      m_stuid, m_organization_name, m_organization_property, 
+      m_organization_industry, m_organization_location, 
+      m_organization_category, m_organization_location_detail, 
+      m_coutry, m_province, m_city
+      )
+    values (#{mGmtCreate,jdbcType=TIMESTAMP}, #{mGmtModified,jdbcType=TIMESTAMP}, #{mIsDeleted,jdbcType=TINYINT}, 
+      #{mName,jdbcType=VARCHAR}, #{mSex,jdbcType=TINYINT}, #{mQualification,jdbcType=VARCHAR}, 
+      #{mMajor,jdbcType=VARCHAR}, #{mMajorDirection,jdbcType=VARCHAR}, #{mCultivationMethod,jdbcType=VARCHAR}, 
+      #{mDestination,jdbcType=VARCHAR}, #{mGraduationTime,jdbcType=VARCHAR}, #{mClass,jdbcType=VARCHAR}, 
+      #{mStuid,jdbcType=VARCHAR}, #{mOrganizationName,jdbcType=VARCHAR}, #{mOrganizationProperty,jdbcType=VARCHAR}, 
+      #{mOrganizationIndustry,jdbcType=VARCHAR}, #{mOrganizationLocation,jdbcType=VARCHAR}, 
+      #{mOrganizationCategory,jdbcType=VARCHAR}, #{mOrganizationLocationDetail,jdbcType=VARCHAR}, 
+      #{mCoutry,jdbcType=VARCHAR}, #{mProvince,jdbcType=VARCHAR}, #{mCity,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="m_id" keyProperty="mId" parameterType="com.sdu.graduate.entity.GraduateMasterDO" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into graduate_master
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="mGmtCreate != null">
+        m_gmt_create,
+      </if>
+      <if test="mGmtModified != null">
+        m_gmt_modified,
+      </if>
+      <if test="mIsDeleted != null">
+        m_is_deleted,
+      </if>
+      <if test="mName != null">
+        m_name,
+      </if>
+      <if test="mSex != null">
+        m_sex,
+      </if>
+      <if test="mQualification != null">
+        m_qualification,
+      </if>
+      <if test="mMajor != null">
+        m_major,
+      </if>
+      <if test="mMajorDirection != null">
+        m_major_direction,
+      </if>
+      <if test="mCultivationMethod != null">
+        m_cultivation_method,
+      </if>
+      <if test="mDestination != null">
+        m_destination,
+      </if>
+      <if test="mGraduationTime != null">
+        m_graduation_time,
+      </if>
+      <if test="mClass != null">
+        m_class,
+      </if>
+      <if test="mStuid != null">
+        m_stuid,
+      </if>
+      <if test="mOrganizationName != null">
+        m_organization_name,
+      </if>
+      <if test="mOrganizationProperty != null">
+        m_organization_property,
+      </if>
+      <if test="mOrganizationIndustry != null">
+        m_organization_industry,
+      </if>
+      <if test="mOrganizationLocation != null">
+        m_organization_location,
+      </if>
+      <if test="mOrganizationCategory != null">
+        m_organization_category,
+      </if>
+      <if test="mOrganizationLocationDetail != null">
+        m_organization_location_detail,
+      </if>
+      <if test="mCoutry != null">
+        m_coutry,
+      </if>
+      <if test="mProvince != null">
+        m_province,
+      </if>
+      <if test="mCity != null">
+        m_city,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="mGmtCreate != null">
+        #{mGmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mGmtModified != null">
+        #{mGmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mIsDeleted != null">
+        #{mIsDeleted,jdbcType=TINYINT},
+      </if>
+      <if test="mName != null">
+        #{mName,jdbcType=VARCHAR},
+      </if>
+      <if test="mSex != null">
+        #{mSex,jdbcType=TINYINT},
+      </if>
+      <if test="mQualification != null">
+        #{mQualification,jdbcType=VARCHAR},
+      </if>
+      <if test="mMajor != null">
+        #{mMajor,jdbcType=VARCHAR},
+      </if>
+      <if test="mMajorDirection != null">
+        #{mMajorDirection,jdbcType=VARCHAR},
+      </if>
+      <if test="mCultivationMethod != null">
+        #{mCultivationMethod,jdbcType=VARCHAR},
+      </if>
+      <if test="mDestination != null">
+        #{mDestination,jdbcType=VARCHAR},
+      </if>
+      <if test="mGraduationTime != null">
+        #{mGraduationTime,jdbcType=VARCHAR},
+      </if>
+      <if test="mClass != null">
+        #{mClass,jdbcType=VARCHAR},
+      </if>
+      <if test="mStuid != null">
+        #{mStuid,jdbcType=VARCHAR},
+      </if>
+      <if test="mOrganizationName != null">
+        #{mOrganizationName,jdbcType=VARCHAR},
+      </if>
+      <if test="mOrganizationProperty != null">
+        #{mOrganizationProperty,jdbcType=VARCHAR},
+      </if>
+      <if test="mOrganizationIndustry != null">
+        #{mOrganizationIndustry,jdbcType=VARCHAR},
+      </if>
+      <if test="mOrganizationLocation != null">
+        #{mOrganizationLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="mOrganizationCategory != null">
+        #{mOrganizationCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="mOrganizationLocationDetail != null">
+        #{mOrganizationLocationDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="mCoutry != null">
+        #{mCoutry,jdbcType=VARCHAR},
+      </if>
+      <if test="mProvince != null">
+        #{mProvince,jdbcType=VARCHAR},
+      </if>
+      <if test="mCity != null">
+        #{mCity,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sdu.graduate.entity.GraduateMasterDO">
+    <!--@mbg.generated-->
+    update graduate_master
+    <set>
+      <if test="mGmtCreate != null">
+        m_gmt_create = #{mGmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mGmtModified != null">
+        m_gmt_modified = #{mGmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mIsDeleted != null">
+        m_is_deleted = #{mIsDeleted,jdbcType=TINYINT},
+      </if>
+      <if test="mName != null">
+        m_name = #{mName,jdbcType=VARCHAR},
+      </if>
+      <if test="mSex != null">
+        m_sex = #{mSex,jdbcType=TINYINT},
+      </if>
+      <if test="mQualification != null">
+        m_qualification = #{mQualification,jdbcType=VARCHAR},
+      </if>
+      <if test="mMajor != null">
+        m_major = #{mMajor,jdbcType=VARCHAR},
+      </if>
+      <if test="mMajorDirection != null">
+        m_major_direction = #{mMajorDirection,jdbcType=VARCHAR},
+      </if>
+      <if test="mCultivationMethod != null">
+        m_cultivation_method = #{mCultivationMethod,jdbcType=VARCHAR},
+      </if>
+      <if test="mDestination != null">
+        m_destination = #{mDestination,jdbcType=VARCHAR},
+      </if>
+      <if test="mGraduationTime != null">
+        m_graduation_time = #{mGraduationTime,jdbcType=VARCHAR},
+      </if>
+      <if test="mClass != null">
+        m_class = #{mClass,jdbcType=VARCHAR},
+      </if>
+      <if test="mStuid != null">
+        m_stuid = #{mStuid,jdbcType=VARCHAR},
+      </if>
+      <if test="mOrganizationName != null">
+        m_organization_name = #{mOrganizationName,jdbcType=VARCHAR},
+      </if>
+      <if test="mOrganizationProperty != null">
+        m_organization_property = #{mOrganizationProperty,jdbcType=VARCHAR},
+      </if>
+      <if test="mOrganizationIndustry != null">
+        m_organization_industry = #{mOrganizationIndustry,jdbcType=VARCHAR},
+      </if>
+      <if test="mOrganizationLocation != null">
+        m_organization_location = #{mOrganizationLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="mOrganizationCategory != null">
+        m_organization_category = #{mOrganizationCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="mOrganizationLocationDetail != null">
+        m_organization_location_detail = #{mOrganizationLocationDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="mCoutry != null">
+        m_coutry = #{mCoutry,jdbcType=VARCHAR},
+      </if>
+      <if test="mProvince != null">
+        m_province = #{mProvince,jdbcType=VARCHAR},
+      </if>
+      <if test="mCity != null">
+        m_city = #{mCity,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where m_id = #{mId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sdu.graduate.entity.GraduateMasterDO">
+    <!--@mbg.generated-->
+    update graduate_master
+    set m_gmt_create = #{mGmtCreate,jdbcType=TIMESTAMP},
+      m_gmt_modified = #{mGmtModified,jdbcType=TIMESTAMP},
+      m_is_deleted = #{mIsDeleted,jdbcType=TINYINT},
+      m_name = #{mName,jdbcType=VARCHAR},
+      m_sex = #{mSex,jdbcType=TINYINT},
+      m_qualification = #{mQualification,jdbcType=VARCHAR},
+      m_major = #{mMajor,jdbcType=VARCHAR},
+      m_major_direction = #{mMajorDirection,jdbcType=VARCHAR},
+      m_cultivation_method = #{mCultivationMethod,jdbcType=VARCHAR},
+      m_destination = #{mDestination,jdbcType=VARCHAR},
+      m_graduation_time = #{mGraduationTime,jdbcType=VARCHAR},
+      m_class = #{mClass,jdbcType=VARCHAR},
+      m_stuid = #{mStuid,jdbcType=VARCHAR},
+      m_organization_name = #{mOrganizationName,jdbcType=VARCHAR},
+      m_organization_property = #{mOrganizationProperty,jdbcType=VARCHAR},
+      m_organization_industry = #{mOrganizationIndustry,jdbcType=VARCHAR},
+      m_organization_location = #{mOrganizationLocation,jdbcType=VARCHAR},
+      m_organization_category = #{mOrganizationCategory,jdbcType=VARCHAR},
+      m_organization_location_detail = #{mOrganizationLocationDetail,jdbcType=VARCHAR},
+      m_coutry = #{mCoutry,jdbcType=VARCHAR},
+      m_province = #{mProvince,jdbcType=VARCHAR},
+      m_city = #{mCity,jdbcType=VARCHAR}
+    where m_id = #{mId,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -1,0 +1,70 @@
+server:
+  port: 8002
+
+spring:
+  mvc:
+    static-path-pattern: /static/**
+
+  redis:
+    host: 152.136.26.27
+    database: 5
+    port: 6379
+    password: "YvLzYFyR4IFBf4SIYduVIaAOqLjYlp1oTXjpGecqYBqRGZXmaKSFpOpUwgGGntSX"
+    jedis:
+      pool:
+        max-active: 50
+        max-idle: 20
+        min-idle: 5
+
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 2KB
+      max-file-size: 1024MB
+      max-request-size: 1024MB
+      //location: /image
+
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # url: jdbc:mysql://123.60.98.189:33306/fotilo?useUnicode=true&characterEncoding=utf8&useSSL=false
+    url: jdbc:mysql://152.136.26.27:33306/Fotilo?useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: YvLzYFyR4IFBf4SIYduVIaAOqLjYlp1oTXjpGecqYBqRGZXmaKSFpOpUwgGGntSX
+
+    hikari:
+      connection-timeout: 60000
+      validation-timeout: 3000
+      idle-timeout: 50000
+      login-timeout: 5
+      max-lifetime: 60000
+      maximum-pool-size: 200
+      minimum-idle: 10
+      read-only: false
+
+mybatis:
+  type-aliases-package: com.oppocup.backend.entity
+
+interceptor:
+  path:
+    exclude:
+      - /swagger/**
+      - /swagger-ui/**
+      - /swagger-resources/**
+      - /user/login
+      - /image/**
+      - /video/**
+      - /user/phonelogin
+      - /user/register
+      - /user/phoneLogin
+      - /user/logout
+      - /user/sendMessage
+      - /video/recommendList
+      - /user/getOtherUserInfo
+      - /dynamic/recommendList
+      - /image/upload/ali/complete
+      - /bullet/get
+      - /user/test
+logging:
+  level:
+    com.oppocup.backend.mapper: debug
